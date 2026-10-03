@@ -34,6 +34,7 @@
         <module>api-cms-service</module>
         <module>api-internal-service</module>
         <module>mongo-migration-service</module>
+        <module>commons-web</module>
     </modules>
 
     <!-- Quản lý phiên bản cho các thư viện, không tự động thêm vào các module con -->
