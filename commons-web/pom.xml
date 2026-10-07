@@ -43,6 +43,7 @@
             <artifactId>lombok</artifactId>                           <!-- @Slf4j -->
             <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
 </project>

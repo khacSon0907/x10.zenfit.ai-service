@@ -76,6 +76,11 @@
                 <artifactId>core-user-infrastructure-module</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>x10.zenfit</groupId>
+                <artifactId>core-auth-module</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
