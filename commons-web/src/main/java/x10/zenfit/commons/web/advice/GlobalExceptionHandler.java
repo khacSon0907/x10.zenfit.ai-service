@@ -4,7 +4,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -80,6 +83,29 @@ public class GlobalExceptionHandler {
             AuthenticationException ex, HttpServletRequest req) {
         log.warn("[AUTHENTICATION_ERROR] path={}, message={}", req.getRequestURI(), ex.getMessage());
         return build(CommonError.UNAUTHORIZED, null, null, req);
+    }
+
+    /* 5b. BAD BODY / WRONG METHOD */
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ErrorResponse> handleNotReadable(
+            HttpMessageNotReadableException ex, HttpServletRequest req) {
+        log.warn("[BAD_BODY] path={}, message={}", req.getRequestURI(), ex.getMessage());
+        return build(CommonError.INVALID_REQUEST, "Body không hợp lệ hoặc bị thiếu", null, req);
+    }
+
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public ResponseEntity<ErrorResponse> handleMethodNotSupported(
+            HttpRequestMethodNotSupportedException ex, HttpServletRequest req) {
+        log.warn("[METHOD_NOT_ALLOWED] path={}, message={}", req.getRequestURI(), ex.getMessage());
+        ErrorResponse body = ErrorResponse.of(
+                CommonError.INVALID_REQUEST.type(),
+                HttpStatus.METHOD_NOT_ALLOWED.value(),
+                CommonError.INVALID_REQUEST.code(),
+                ex.getMessage(),
+                null,
+                req.getRequestURI(),
+                MDC.get("traceId"));
+        return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(body);
     }
 
     /* 6. STATIC RESOURCE (favicon...) */

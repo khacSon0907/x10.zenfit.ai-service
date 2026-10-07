@@ -21,4 +21,14 @@ public class UserRepositoryImpl implements IUserRepository {
         UserDocument saved = userMongoRepository.save(document);
         return userMapper.toEntity(saved);
     }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return userMongoRepository.existsByEmail(email);
+    }
+
+    @Override
+    public boolean existsByUsername(String username) {
+        return userMongoRepository.existsByUsername(username);
+    }
 }

@@ -7,4 +7,8 @@ import x10.zenfit.user.core.usecases.createUserUc.CreateUserUcReq;
 public interface IUserRepository {
 
     UserEntity create(UserEntity userEntity);
+
+    boolean existsByEmail(String email);
+
+    boolean existsByUsername(String username);
 }

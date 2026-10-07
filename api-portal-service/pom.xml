@@ -24,6 +24,10 @@
         </dependency>
         <dependency>
             <groupId>x10.zenfit</groupId>
+            <artifactId>commons-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>x10.zenfit</groupId>
             <artifactId>core-user-module</artifactId>
         </dependency>
         <dependency>
