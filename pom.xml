@@ -39,6 +39,8 @@
         <module>core-auth-infrastructure-module</module>
         <module>core-notification-module</module>
         <module>core-notification-infrastructure-module</module>
+        <module>core-security-module</module>
+        <module>core-security-infrastructure-module</module>
     </modules>
 
     <!-- Quản lý phiên bản cho các thư viện, không tự động thêm vào các module con -->
@@ -86,6 +88,16 @@
             <dependency>
                 <groupId>x10.zenfit</groupId>
                 <artifactId>core-auth-module</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>x10.zenfit</groupId>
+                <artifactId>core-security-module</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>x10.zenfit</groupId>
+                <artifactId>core-security-infrastructure-module</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
