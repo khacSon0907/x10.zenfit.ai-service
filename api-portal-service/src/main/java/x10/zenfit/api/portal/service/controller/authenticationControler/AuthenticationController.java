@@ -21,6 +21,7 @@ public class AuthenticationController {
 
     private final ICoreAuthService coreAuthService;
 
+
     @PostMapping("/sign-in")
     public ResponseEntity<ApiResponse<SignInUcResp>> signIn(@Valid @RequestBody SignInUcReq req) {
         SignInUcResp resp = coreAuthService.signIn(req);

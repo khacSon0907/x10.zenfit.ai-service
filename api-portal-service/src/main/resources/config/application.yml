@@ -22,3 +22,19 @@ spring:
 app:
   mail:
     from: ${MAIL_FROM}
+
+security:
+  # Không cần đăng nhập (được xử lý TRƯỚC protected-urls)
+  publicUrls:
+    - "/api/auth/**"          # sign-in, verify OTP, resend OTP...
+    - "/api/users/register"   # đổi lại cho đúng path đăng ký của bạn
+
+  # Chỉ giữ những API thật sự cần bảo vệ
+  protectedUrls:
+    - { urlPattern: "/api/users/**", unauthorizedWwwAuthenticateHeaders: [ "Bearer" ] }
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

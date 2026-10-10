@@ -25,6 +25,12 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
+        <!-- Zenfit Commons -->
+        <dependency>
+            <groupId>x10.zenfit</groupId>
+            <artifactId>commons</artifactId>
+        </dependency>
+
         <!-- Web: filter, exception handler, CORS -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

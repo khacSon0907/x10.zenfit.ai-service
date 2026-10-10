@@ -23,6 +23,7 @@
         <spring-cloud.version>2023.0.3</spring-cloud.version>
         <lombok.version>1.18.34</lombok.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <springdoc.version>2.6.0</springdoc.version>
     </properties>
 
     <!-- Khai báo các modules con trong dự án -->
@@ -37,8 +38,8 @@
         <module>commons-web</module>
         <module>core-auth-module</module>
         <module>core-auth-infrastructure-module</module>
-        <module>core-notification-module</module>
-        <module>core-notification-infrastructure-module</module>
+        <module>core-mailbox-module</module>
+        <module>core-mailBox-infrastructure-module</module>
         <module>core-security-module</module>
         <module>core-security-infrastructure-module</module>
     </modules>
@@ -62,6 +63,13 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- SpringDoc OpenAPI (Swagger) -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc.version}</version>
             </dependency>
 
             <!-- Internal Modules - Centralized Versioning -->

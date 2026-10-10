@@ -21,6 +21,11 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>x10.zenfit</groupId>
+            <artifactId>core-mailbox-module</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!-- Spring Boot Core -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
